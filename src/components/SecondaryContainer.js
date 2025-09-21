@@ -11,8 +11,8 @@ const SecondaryContainer = () => {
   )
     return;
 
-  console.log(movies.popularMovies);
-  console.log(movies.nowPlayingMovies);
+  //   console.log(movies.popularMovies);
+  //   console.log(movies.nowPlayingMovies);
 
   return (
     <div className="bg-black text-white">

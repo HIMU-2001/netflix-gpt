@@ -12,7 +12,7 @@ export const useUpcomingMovies = () => {
   const getUpcomingMovies = async () => {
     const data = await fetch(UPCOMING_MOVIE_URL, options);
     const jsonData = await data.json();
-    console.log(jsonData.results);
+    // console.log(jsonData.results);
     dispatch(addUpcomingMovies(jsonData.results));
   };
 

@@ -8,7 +8,7 @@ export const useTopRatedMovies = () => {
   const getTopRatedMovies = async () => {
     const data = await fetch(TOP_RATED_MOVIE_URL, options);
     const jsonData = await data.json();
-    console.log(jsonData.results);
+    // console.log(jsonData.results);
     dispatch(addTopRatedMovies(jsonData.results));
   };
 
