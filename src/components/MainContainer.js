@@ -5,20 +5,20 @@ import { useSelector } from "react-redux";
 
 const MainContainer = () => {
   const movies = useSelector((store) => store.movies?.nowPlayingMovies);
-  if (!movies) return null;
+  if (!movies || movies.length === 0) return null;
 
-  const { id, original_title, overview } = movies?.[0];
+  const { id, original_title, overview } = movies[10];
 
   return (
-    <div className="relative w-full h-[60vh] md:h-[80vh]">
+    <div className="relative w-full h-[80vh] sm:h-[90vh] lg:h-[100vh] overflow-hidden">
       {/* Background Video */}
       <VideoBackground movieId={id} />
 
       {/* Gradient Overlay */}
-      <div className="absolute inset-0 bg-gradient-to-r from-black via-black/60 to-transparent"></div>
+      <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/30 to-transparent"></div>
 
       {/* Title Overlay */}
-      <div className="absolute bottom-20 left-6 md:left-12 z-10">
+      <div className="absolute top-1/3 left-6 md:left-12 z-10 max-w-3xl">
         <VideoTitle title={original_title} overview={overview} />
       </div>
     </div>
