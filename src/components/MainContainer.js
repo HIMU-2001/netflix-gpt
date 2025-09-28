@@ -7,7 +7,7 @@ const MainContainer = () => {
   const movies = useSelector((store) => store.movies?.nowPlayingMovies);
   if (!movies || movies.length === 0) return null;
 
-  const { id, original_title, overview } = movies[10];
+  const { id, original_title, overview } = movies[2];
 
   return (
     <div className="relative w-full h-[80vh] sm:h-[90vh] lg:h-[100vh] overflow-hidden">
