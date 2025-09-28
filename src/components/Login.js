@@ -83,16 +83,20 @@ const Login = () => {
   };
   return (
     <div
-      className="h-screen w-full flex items-center justify-center bg-cover bg-center"
+      className="h-screen w-full flex flex-col items-center justify-center bg-cover bg-center relative"
       style={{
         backgroundImage: BG_IMG,
       }}
     >
+      {/* Header */}
       <Header />
-      <div className="bg-black/60 backdrop-blur-md p-8 rounded-lg w-[400px] max-w-full text-white">
-        <h1 className="text-3xl font-bold mb-6">
+
+      {/* Form Card */}
+      <div className="bg-black/60 backdrop-blur-md p-6 sm:p-8 md:p-10 rounded-lg w-full max-w-sm sm:max-w-md md:max-w-lg text-white mt-24 sm:mt-32">
+        <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-6 text-center">
           {signInForm ? "Sign In" : "Sign Up"}
         </h1>
+
         <form
           className="flex flex-col gap-4"
           onSubmit={(e) => e.preventDefault()}
@@ -102,41 +106,47 @@ const Login = () => {
               type="text"
               ref={name}
               placeholder="Name"
-              className="p-3 rounded bg-gray-800/70 focus:outline-none focus:ring-2 focus:ring-red-600"
+              className="p-3 sm:p-4 rounded bg-gray-800/70 focus:outline-none focus:ring-2 focus:ring-red-600 text-sm sm:text-base"
             />
           )}
           <input
             type="text"
             ref={email}
             placeholder="Email"
-            className="p-3 rounded bg-gray-800/70 focus:outline-none focus:ring-2 focus:ring-red-600"
+            className="p-3 sm:p-4 rounded bg-gray-800/70 focus:outline-none focus:ring-2 focus:ring-red-600 text-sm sm:text-base"
           />
           <input
             type="password"
             ref={password}
             placeholder="Password"
-            className="p-3 rounded bg-gray-800/70 focus:outline-none focus:ring-2 focus:ring-red-600"
+            className="p-3 sm:p-4 rounded bg-gray-800/70 focus:outline-none focus:ring-2 focus:ring-red-600 text-sm sm:text-base"
           />
+
           {errorMessage && (
-            <p className="text-red-500 text-sm mt-1">{errorMessage}</p>
+            <p className="text-red-500 text-xs sm:text-sm mt-1">
+              {errorMessage}
+            </p>
           )}
+
           <button
             type="submit"
-            className="bg-red-600 hover:bg-red-700 transition p-3 rounded font-semibold"
+            className="bg-red-600 hover:bg-red-700 transition p-3 sm:p-4 rounded font-semibold text-sm sm:text-base mt-2"
             onClick={handleButtonClick}
           >
             {signInForm ? "Sign In" : "Sign Up"}
           </button>
         </form>
 
-        <div className="flex justify-between text-sm text-gray-400 mt-3">
+        {/* Forgot Password */}
+        <div className="flex justify-between text-xs sm:text-sm text-gray-400 mt-3">
           <a href="#" className="hover:underline">
             Forgot password?
           </a>
         </div>
 
+        {/* Toggle Sign In/Sign Up */}
         <p
-          className="text-gray-400 mt-6 cursor-pointer text-white"
+          className="text-gray-400 mt-6 cursor-pointer text-center text-sm sm:text-base"
           onClick={toggleSignInForm}
         >
           {signInForm
@@ -144,7 +154,8 @@ const Login = () => {
             : "Already Registered? Sign In"}
         </p>
 
-        <p className="text-xs text-gray-500 mt-6">
+        {/* reCAPTCHA info */}
+        <p className="text-xs sm:text-sm text-gray-500 mt-6 text-center">
           This page is protected by Google reCAPTCHA to ensure you're not a bot.{" "}
           <a href="#" className="text-blue-500 hover:underline">
             Learn more.
